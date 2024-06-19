@@ -1,20 +1,13 @@
 import streamlit as st
-import os
 import pandas as pd
-from dotenv import load_dotenv
-import matplotlib.pyplot as plt 
 from langchain.agents.agent_types import AgentType
 from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
 from langchain_google_genai import GoogleGenerativeAI
 import json
 
-load_dotenv()
 
-client = pymongo.MongoClient(os.getenv("DB_key"))
-db = client["mydatabase"]
-collection = db["users"]
 
-llm  = GoogleGenerativeAI(model="gemini-pro", google_api_key=os.getenv("GOOGLE_KEY"))
+llm  = GoogleGenerativeAI(model="gemini-pro", google_api_key="AIzaSyDMGiZds8QE2MquY0tm7N4qE4_zBUXOKM8")
 
 def ask(query, agent):
     if "graph" in query:
