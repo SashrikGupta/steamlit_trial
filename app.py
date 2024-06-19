@@ -1,6 +1,5 @@
 import streamlit as st
 import os
-import pymongo 
 import pandas as pd
 from dotenv import load_dotenv
 import matplotlib.pyplot as plt 
