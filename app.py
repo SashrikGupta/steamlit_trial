@@ -39,11 +39,15 @@ def ask(query, agent):
 
 def main():
 
-    st.write("# CHAT WITH YOUR CSV DATA SET")
-    uploaded_file = st.file_uploader('Choose a csv file', type=['csv'])
+    st.write("# CHAT WITH YOUR CSV OR EXCEL DATA SET")
+    uploaded_file = st.file_uploader('Choose a file', type=['csv', 'xlsx'])
 
     if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)
+        if uploaded_file.type == 'application/vnd.ms-excel':
+            df = pd.read_excel(uploaded_file)
+        else:
+            df = pd.read_csv(uploaded_file)
+        
         st.write('Uploaded Dataset:')
         st.write(df)
 
